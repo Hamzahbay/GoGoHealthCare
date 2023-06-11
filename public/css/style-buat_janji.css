@@ -1,0 +1,248 @@
+body {
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+}
+.container {
+    height: 100%;
+    margin: 10% 0%;
+}
+.container .title {
+    margin: 5% 0;
+}
+.container .calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    border: solid 1px rgb(50, 120, 50);
+    background-image: linear-gradient(to bottom right, rgb(50, 120, 50), rgb(99, 167, 99));
+    height: 750px;
+}
+.container .calendar div {
+    border: solid 1px white;
+    border-top: none;
+    border-left: none;
+    z-index: 2;
+    padding: 5% 0;
+    overflow: auto;
+}
+.container .calendar div ul {
+    list-style: circle;
+}
+.container .calendar div .day {
+    width: 100%;
+    height: 20%;
+}
+.container .calendar div:hover {
+    color: rgb(50, 120, 50);
+    background-color: white;
+}
+
+.container .nb {
+    margin: 5% 20%;
+}
+.container .nb table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 1px rgb(50, 120, 50);
+}
+.container .nb table tr {
+    border: solid 1px rgb(50, 120, 50);
+}
+.container .nb table tr td {
+    padding: 1%;
+    border: solid 1px rgb(50, 120, 50);
+}
+.container .nb table thead tr {
+    background-color: rgb(50, 120, 50);
+    color: white;
+    text-align: center;
+}
+
+.container section {
+    margin: 5% 20%;
+    padding: 5% 2.5%;
+    padding-top: 2%;
+}
+.container section p {
+    margin: 5% 0;
+}
+.container .box {
+    padding: 1% 5%;
+    border-radius: 5px;
+}
+.container .box:hover {
+    background-image: linear-gradient(to bottom right, rgb(50, 120, 50),  rgb(99, 167, 99));
+}
+
+.content .alert {
+    margin: 5% 0;
+}
+.content .alert div {
+    border-top: double;
+    padding: 5% 10%;
+    filter: opacity(.7);
+}
+.content {
+    margin: 10% 10%;
+}
+.content .box {
+    margin: 5% 0;
+    padding: 5% 0;
+    background: white;
+    border-radius: 10px;
+    color: green;
+}
+.content .box form .input input {
+    border-radius: 5px;
+    padding: 1%;
+    color: rgb(50, 120, 50);
+    border: solid 2px rgb(132, 173, 132);
+    background: rgb(250, 250, 250);
+    display: grid;
+    margin: 2.5% 10%;
+    width: 75%;
+}
+.content .box form .submit input {
+    margin: 0 4%;
+    width: 100px;
+    border: solid 2px rgb(132, 173, 132);
+    color: rgb(50, 120, 50);
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+#message1, #message2 {
+    /* margin: 1% 5%; */
+    margin-left: -2.5%;
+    border: solid 2px rgb(132, 173, 132);
+    border-radius: 5px;
+    padding: 1%;
+    width: 75%;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(50, 120, 50);
+}
+.content .box form .input input:focus {
+    border: solid 3px rgb(132, 173, 132);
+    transform: scale(1.2);
+    background: white;
+    transition: ease 500ms;
+    margin-left: 11%;
+}
+.content .box form .submit input:hover {
+    background-image: linear-gradient(to bottom right, rgb(50, 120, 50), rgb(132, 173, 132));
+    color: white;
+    transform: scale(1.2);
+    border: solid 2px rgb(250, 250, 250);
+    transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 200ms;
+}
+
+.date-now {
+    color: rgb(50, 120, 50);
+    background-color: white;
+}
+
+
+@media ( max-width: 900px ) {
+    .content {
+        margin: 10% 5%;
+        padding: 5% 2.5%;
+    }
+}
+@media ( max-width: 600px ) {
+    .container .title {
+        margin: 10% 0;
+    }
+    .container .title p{
+        font-size: x-large;
+    }
+    .container .calendar div ul {
+        margin-left: -15%;
+        font-size: small;
+    }
+    .container .nb {
+        margin: 10% 10%;
+    }
+    .container .calendar {
+        height: 600px;
+    }
+    .container section {
+        margin: 10% 10%;
+    }
+    .content {
+        margin: 15% 2.5%;
+        padding: 0 2.5%;
+    }
+    .content .title p {
+        font-size: x-large;
+    }
+}
+@media ( max-width: 460px ) {
+    .container .title {
+        margin: 20% 0;
+        margin-bottom: 10%;
+    }
+    .container .title p{
+        font-size: large;
+    }
+    .container .calendar div ul {
+        margin-left: -30%;
+    }
+    .container .nb {
+        margin: 20% 5%;
+    }
+    .container .calendar {
+        height: 470px;
+    }
+    .container section {
+        margin: 15% 5%;
+    }
+    .container section p {
+        font-size: small;
+    }
+    .container .alert {
+        margin-top: 15%;
+    }
+    .container .alert p {
+        font-size: x-large;
+    }
+    .container .alert div {
+        font-size: small;
+    }
+    .content {
+        margin: 15% 2.5%;
+        padding: 5% 2.5%;
+    }
+    .content .title p {
+        font-size: large;
+    }
+    .content .box {
+        padding: 10% 5%;
+    }
+    .content .box form .input input {
+        display: grid;
+        margin: 5% 10%;
+        width: 75%;
+    }
+    .content .box form p textarea {
+        margin: 2.5% 0;
+    }
+    .content .box form .submit input {
+        width: 80px;
+        margin: 0 5%;
+    }
+    .content .box form .input input:focus {
+        border: solid 3px rgb(132, 173, 132);
+        transform: scale(1.2);
+        background: white;
+        margin: 5% 10%;
+        transition: cubic-bezier(0.6, -0.28, 0.0009, -1) 500ms;
+    }
+    .content .box form .submit input:hover {
+        background-image: linear-gradient(to bottom right, rgb(50, 120, 50), rgb(132, 173, 132));
+        color: white;
+        transform: scale(1.2);
+        border: solid 2px rgb(250, 250, 250);
+        transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 200ms;
+        margin: 0 5%;
+    }
+}

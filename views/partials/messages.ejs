@@ -1,0 +1,25 @@
+<% if( typeof errors != 'undefined' ) { %>
+    <% errors.forEach( err => { %>
+        <div class="error-box">
+            <%= err.message %>
+        </div>
+    <% }) %>
+<% } %>
+
+<% if( success_message != '' ) { %>
+    <div class="success-box">
+        <%= success_message %>
+    </div>
+<% } %>
+
+<% if( error_message != '' ) { %>
+    <div class="error-box">
+        <%= error_message %>
+    </div>
+<% } %>
+
+<% if( error != '' ) { %>
+    <div class="error-box">
+        <%= error %>
+    </div>
+<% } %>

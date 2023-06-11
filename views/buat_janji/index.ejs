@@ -1,0 +1,75 @@
+    <link rel="stylesheet" href="./css/style-buat_janji.css">
+    
+    <% if( pasien.no != '' ) { %>
+            <!-- Navigation Bar -->
+            <div class="navbar white">
+                <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+                <i class="material-icons">view_headline</i>
+                <div class="menu">
+                    <a class="deco-none white" href="/"><span>Beranda</span></a>
+                    <a class="deco-none white" href="/pasien"><span>Tanya Dokter</span></a>
+                    <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+                    <a class="deco-none white" href="/buat_janji"><span class="actived">Buat Janji</span></a>
+                    <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+                </div>
+                <div class="responsive-menu text-center display-none">
+                    <a class="deco-none white" href="/"><div>Beranda</div></a>
+                    <a class="deco-none white" href="/pasien"><div>Tanya Dokter</div></a>
+                    <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+                    <a class="deco-none white" href="/buat_janji"><div class="actived">Buat Janji</div></a>
+                    <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+                </div>
+            </div>
+    <% } else{ %>
+            <!-- Navigation Bar -->
+            <div class="navbar white">
+                <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+                <i class="material-icons">view_headline</i>
+                <div class="menu">
+                    <a class="deco-none white" href="/"><span>Beranda</span></a>
+                    <a class="deco-none white" href="/tanya_dokter"><span>Tanya Dokter</span></a>
+                    <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+                    <a class="deco-none white" href="/buat_janji"><span class="actived">Buat Janji</span></a>
+                </div>
+                <div class="responsive-menu text-center display-none">
+                    <a class="deco-none white" href="/"><div>Beranda</div></a>
+                    <a class="deco-none white" href="/tanya_dokter"><div>Tanya Dokter</div></a>
+                    <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+                    <a class="deco-none white" href="/buat_janji"><div class="actived">Buat Janji</div></a>
+                </div>
+            </div>
+    <% } %>
+
+    <!-- Calendar -->
+    <div class="container">
+        <div class="title"><p class="size-xxlarge green text-center">Jadwal Praktek Bulan <span></span></p></div>
+        <div class="calendar white"></div>
+        <div class="nb green">
+            <div class="schedule">
+                <p class="size-xlarge text-left">Jadwal : </p>
+                <div></div>
+            </div>
+            <p class="size-xlarge text-left">Keterangan Kode Dokter : </p>
+            <table>
+                <thead><tr><td>Kode</td><td>Nama</td><td>Spesialis</td></tr></thead>
+                <tbody>
+                    <tr><td>A1</td><td>Dr. Supendik Raharjo</td><td>Gigi</td></tr>
+                    <tr><td>B4</td><td>Dr. Kurniadi</td><td>Otak</td></tr>
+                    <tr><td>E4</td><td>Dr. Gugus Entikmo</td><td>Jantung</td></tr>
+                    <tr><td>E1</td><td>Dr. Jupaidiyasin</td><td>Jantung</td></tr>
+                    <tr><td>E2</td><td>Dr. Moh. Thariq</td><td>Jantung</td></tr>
+                    <tr><td>K4</td><td>Dr. Maisaroh</td><td>Tulang</td></tr>
+                    <tr><td>K1</td><td>Dr. Pekoroso</td><td>Tulang</td></tr>
+                    <tr><td>K3</td><td>Dr. Ismail Imron</td><td>Tulang</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <section class="bg-white">
+            <p class="text-center green">Tentukan Tanggal Janji Untuk Datang Ke Klinik
+                    <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+            </p>
+            <a href="/buat_janji/form_janji" class="deco-none white"><div class="box text-center bg-green-gradient">Buat Janji</div></a>
+        </section>
+    </div>
+
+<script src="./js/script-buat_janji.js"></script>

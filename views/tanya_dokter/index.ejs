@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="./css/style-tanya_dokter.css">
+
+<% if( pasien.no != '' ) { %>
+    <!-- Navigation Bar -->
+    <div class="navbar white">
+        <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+        <i class="material-icons">view_headline</i>
+        <div class="menu">
+            <a class="deco-none white" href="/"><span>Beranda</span></a>
+            <a class="deco-none white" href="/pasien"><span class="actived">Tanya Dokter</span></a>
+            <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+            <a class="deco-none white" href="/buat_janji"><span>Buat Janji</span></a>
+            <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+        </div>
+        <div class="responsive-menu text-center display-none">
+            <a class="deco-none white" href="/"><div>Beranda</div></a>
+            <a class="deco-none white" href="/pasien"><div class="actived">Tanya Dokter</div></a>
+            <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+            <a class="deco-none white" href="/buat_janji"><div>Buat Janji</div></a>
+            <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+        </div>
+    </div>
+<% } else{ %>
+    <!-- Navigation Bar -->
+    <div class="navbar white">
+        <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+        <i class="material-icons">view_headline</i>
+        <div class="menu">
+            <a class="deco-none white" href="/"><span>Beranda</span></a>
+            <a class="deco-none white" href="/tanya_dokter"><span class="actived">Tanya Dokter</span></a>
+            <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+            <a class="deco-none white" href="/buat_janji"><span>Buat Janji</span></a>
+        </div>
+        <div class="responsive-menu text-center display-none">
+            <a class="deco-none white" href="/"><div>Beranda</div></a>
+            <a class="deco-none white" href="/tanya_dokter"><div class="actived">Tanya Dokter</div></a>
+            <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+            <a class="deco-none white" href="/buat_janji"><div>Buat Janji</div></a>
+        </div>
+    </div>
+<% } %>
+
+<div class="container">
+    <div class="box text-center size-large">
+        <div class="alert-box">
+            <%- include('./../partials/messages.ejs') %>
+        </div>
+        <form action="" method="POST">
+            <p class="input">
+                Nama:
+                <input type="text" name="nama" autocomplete="off" id="nama" placeholder="Nama" required>
+                No Pasien:
+                <input type="text" name="no" autocomplete="off" id="inputNumber" placeholder="Nomor Pasien" required>
+            </p>
+            <p class="submit"><input type="reset" value="Reset"><input type="submit" value="Masuk"></p>
+        </form>
+    </div>
+    <div class="alert text-center green">
+        <p class="size-xxlarge">Perhatian !</p>
+        <div class="size-large">
+            Fitur ini hanya tersedia bagi pasien yang telah datang ke klinik dan mendapatkan nomor pasien.
+        </div>
+    </div>
+</div>
+
+<script src="./js/script-beranda.js"></script>

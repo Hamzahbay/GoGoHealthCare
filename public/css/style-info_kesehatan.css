@@ -1,0 +1,98 @@
+body {
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+}
+
+.container {
+    margin: 10% 5%;
+}
+.container .category {
+    margin: 0 5%;
+    border-radius: 10px 10px 0 0;
+    padding: 0;
+}
+.container .category ul {
+    display: inline-flex;
+    list-style: none;
+}
+.container .category ul li {
+    margin-right: 25%;
+    cursor: pointer;
+}
+.container .category ul .actived-list {
+    scale: 1.2;
+    color: rgb(132, 173, 132);
+}
+.container .category ul li:hover {
+    scale: 1.2;
+    color: rgb(132, 173, 132);
+    transition: cubic-bezier(0.445, 0.05, 0.1, -2) 100ms;
+}
+
+.container .contents {
+    margin: 0 5%;
+    background-color: white;
+}
+.container .contents table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.container .contents table tr {
+    cursor: pointer;
+    border-bottom: solid 1px rgb(50, 120, 50);
+}
+.container .contents table tr:hover {
+    filter: brightness(80%);
+    background-color: whitesmoke;
+}
+.container .contents table tr td {
+    padding: 2.5% 5%;
+    border: solid 0px;
+}
+.container .contents table tr td img {
+    width: 100px;
+}
+
+
+
+@media ( max-width: 800px ) {
+    .container .category ul li {
+        margin: 0 20%;
+    }
+}
+@media ( max-width: 600px ) {
+    .container .category ul li {
+        margin: 0 15%;
+    }
+    .container .contents table tr td p {
+        font-size: large;
+    }
+    .container .contents table tr td {
+        padding: 5% 2.5%;
+    }
+}
+@media ( max-width: 460px ) {
+    .container {
+        margin: 20% 0;
+    }
+    .container .category {
+        margin: 0;
+        border-radius: 0;
+    }
+    .container .category ul li {
+        margin: 0 5%;
+        font-size: x-small;
+    }
+    .container .contents {
+        margin: 0;
+    }
+    .container .contents table tr td {
+        padding: 2.5% 2%;
+    }
+    .container .contents table tr td img {
+        width: 80px;
+    }
+    .container .contents table tr td p {
+        font-size: small;
+    }
+}

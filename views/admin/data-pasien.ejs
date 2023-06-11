@@ -1,0 +1,142 @@
+
+<% if( pasien.role == 'admin' ){ %>
+    <link rel="stylesheet" href="./../css/style.css">
+    <style>
+        body{
+            height: 100vh;
+        }
+        .container{
+            margin-top: 5%;
+        }
+        .container .title-box {
+            text-align: center;
+            font-size: 5vh;
+            color: rgb(50, 120, 50);
+        }
+        .container .search-box {
+            text-align: center;
+        }
+        .container .search-box p input {
+            width: 50vh;
+            border: solid 1px rgb(50, 120, 50);
+            border-radius: 5px;
+            padding: .5%;
+        }
+        .container .search-box p button {
+            border: solid 1px rgb(50, 120, 50);
+            border-radius: 5px;
+            padding: .5%;
+        }
+        .container .nb {
+            margin: 10vh 0;
+            overflow: scroll;
+            font-size: 2vh;
+        }
+        .container .nb table {
+            width: 100rem;
+            border-collapse: collapse;
+            border: solid 1px rgb(50, 120, 50);
+        }
+        .container .nb table tr {
+            border: solid 1px rgb(50, 120, 50);
+        }
+        .container .nb table tr td {
+            padding: 1%;
+            border: solid 1px rgb(50, 120, 50);
+        }
+        .container .nb table thead tr {
+            background-color: rgb(50, 120, 50);
+            color: white;
+            text-align: center;
+        }
+        .container .nb table tbody tr:hover {
+            background-color: rgb(50, 120, 50);
+            color: whitesmoke;
+        }
+
+        @media(max-width: 800px) {
+            .container .nb table {
+                width: 80rem;
+            }
+        }
+        @media(max-width: 600px) {
+            .container .nb table {
+                width: 60rem;
+            }
+        }
+    </style>
+    
+        <!-- Navigation Bar -->
+        <div class="navbar white">
+            <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+            <i class="material-icons">view_headline</i>
+            <div class="menu">
+                <a class="deco-none white" href="/admin/jadwal"><span>Jadwal</span></a>
+                <a class="deco-none white" href="/pasien"><span>Jawab</span></a>
+                <a class="deco-none white" href="/admin/pasien"><span>Pasien</span></a>
+                <a class="deco-none white" href="/admin/data_pasien"><span class="actived">Pasien</span></a>
+                <a class="deco-none white" href="/admin/info"><span>Info Kesehatan</span></a>
+                <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+            </div>
+            <div class="responsive-menu text-center display-none">
+                <a class="deco-none white" href="/admin/jadwal"><div>Jadwal</div></a>
+                <a class="deco-none white" href="/pasien"><div>Jawab</div></a>
+                <a class="deco-none white" href="/admin/data_pasien"><div class="actived">Pasien</div></a>
+                <a class="deco-none white" href="/admin/info"><div>Info Kesehatan</div></a>
+                <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+            </div>
+        </div>
+    
+    
+    <div class="container">
+        <div class="title-box">
+            <p>
+                Data Pasien
+            </p>
+            <p class="size-xlarge">
+                <a href="/admin/pasien" class="deco-none white bg-green" style="padding: 1% .5%; border-radius: 5px;">
+                    Daftar Pasien <i class='fas fa-plus green bg-white' style="padding: .5%; border-radius: 50%;"></i>
+                </a>
+            </p>
+        </div>
+        <div class="nb">
+            <table>
+                <thead>
+                    <tr>
+                        <td>No Pasien</td>
+                        <td>Nama</td>
+                        <td>No Telfon/Hp</td>
+                        <td>Alamat</td>
+                        <td>Custom</td>
+                        <td colspan="2">Aksi</td>
+                    </tr>
+                </thead>
+                <tbody>
+                <% data.forEach(x => { %>
+                    <tr>
+                        <td><%= x.no %></td>
+                        <td><%= x.nama %></td>
+                        <td><%= x.telfon %></td>
+                        <td><%= x.alamat %></td>
+                        <td><%= x.role %></td>
+                        <% if( x.role == 'pasien' ) { %>
+                            <td><a href="/admin/delete/<%= x._id %>" onclick="return confirm('Apakah anda yakin ingin menghapus <%= x.nama %>')">hapus</a></td>
+                        <% } %>
+                        <td><a href="/admin/ubah_pasien/<%= x._id %>">ubah</a></td>
+                    </tr>
+                <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script src="./../js/script.js"></script>
+    <script src="./../js/script-dataPasien.js"></script>
+<% } else{ %>
+    <center>
+        <h1>FORBIDEN</h1>
+        <h2>~~ GOGO HEALTHcares ~~</h2>
+        <h1>GO BACK</h1>
+        <h3><a href="/">CLICK HERE</a></h3>
+    </center>
+<% } %>

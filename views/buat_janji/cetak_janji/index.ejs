@@ -1,0 +1,161 @@
+<link rel="stylesheet" href="../../css/style.css">
+<style>
+    body {
+        background-color: rgb(240, 240, 240);
+        height: 100vh;
+    }
+
+    .container {
+        margin: 5% 20%;
+    }
+    .container .box {
+        padding: 1% 2.5%;
+        border-radius: 10px;
+        display: grid;
+    }
+    .container .box p {
+        display: grid;
+    }
+    .container .box p span {
+        margin: 1% 0;
+    }
+    .container .alert {
+        margin: 5% 0;
+    }
+    .container .alert div {
+        border-top: double;
+        padding: 5% 10%;
+        filter: opacity(.7);
+    }
+    .container a .back {
+        background-image: linear-gradient(to bottom, rgb(50, 120, 50), rgb(132, 173, 132));
+        cursor: pointer;
+        padding: .25rem 0;
+        border-radius: 5px;
+    }
+    .container .alert .cetak {
+        padding: 1% 0;
+        border: none;
+        filter: opacity(1);
+        border-radius: 5px;
+        margin: 2.5% 0;
+        background-image: linear-gradient(to bottom, rgb(50, 120, 50), rgb(132, 173, 132));
+        cursor: pointer;
+    }
+    .container .cetak:hover {
+        background-image: linear-gradient(to top, rgb(50, 120, 50), rgb(132, 173, 132));
+    }
+    .container a .back:hover {
+        background-image: linear-gradient(to top, rgb(50, 120, 50), rgb(132, 173, 132));
+    }
+    @media( max-width: 800px ) {
+        .container {
+            margin: 20% 5%;
+        }
+    }
+</style>
+
+<% if( pasien.no != '' ) { %>
+    <!-- Navigation Bar -->
+    <div class="navbar white">
+        <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+        <i class="material-icons">view_headline</i>
+        <div class="menu">
+            <a class="deco-none white" href="/"><span>Beranda</span></a>
+            <a class="deco-none white" href="/pasien"><span>Tanya Dokter</span></a>
+            <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+            <a class="deco-none white" href="/buat_janji"><span>Buat Janji</span></a>
+            <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+        </div>
+        <div class="responsive-menu text-center display-none">
+            <a class="deco-none white" href="/"><div>Beranda</div></a>
+            <a class="deco-none white" href="/pasien"><div>Tanya Dokter</div></a>
+            <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+            <a class="deco-none white" href="/buat_janji"><div>Buat Janji</div></a>
+            <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+        </div>
+    </div>
+<% } else{ %>
+    <!-- Navigation Bar -->
+    <div class="navbar white">
+        <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+        <i class="material-icons">view_headline</i>
+        <div class="menu">
+            <a class="deco-none white" href="/"><span>Beranda</span></a>
+            <a class="deco-none white" href="/tanya_dokter"><span>Tanya Dokter</span></a>
+            <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+            <a class="deco-none white" href="/buat_janji"><span>Buat Janji</span></a>
+        </div>
+        <div class="responsive-menu text-center display-none">
+            <a class="deco-none white" href="/"><div>Beranda</div></a>
+            <a class="deco-none white" href="/tanya_dokter"><div>Tanya Dokter</div></a>
+            <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+            <a class="deco-none white" href="/buat_janji"><div>Buat Janji</div></a>
+        </div>
+    </div>
+<% } %>
+
+<div class="container">
+    <div class="alert-box text-center" style="width: 100%; margin: 0;">
+        <%- include('./../../partials/messages') %>
+    </div>
+    <div class="box bg-white green text-center">
+        <p>
+            <span class="size-xlarge">
+                Nama Pasien: 
+            </span>
+            <span class="size-large">
+                <%= tgt.nama %>
+            </span>
+        </p>
+        <p>
+            <span class="size-xlarge">
+                No Telfon: 
+            </span>
+            <span class="size-large">
+                <%= tgt.telfon %>
+            </span>
+        </p>
+        <p>
+            <span class="size-xlarge">
+                Alamat Pasien: 
+            </span>
+            <span class="size-large">
+                <%= tgt.alamat %>
+            </span>
+        </p>
+        <p>
+            <span class="size-xlarge">
+                Tanggal Janji: 
+            </span>
+            <span class="size-large">
+                <%= tgt.tanggal %>
+            </span>
+        </p>
+    </div>
+    
+    <div class="alert text-center green">
+        <p class="size-xxlarge">Perhatian !</p>
+        <div class="size-large">
+            Mohon Datang Sesuai Tanggal Janji Yang Telah Anda Tentukan, <br>
+            Salin Link Atau Screenshot Hasil Dari Form Yang Telah Anda Isi Sebagai Bukti. <br>
+        </div>
+        <div class="cetak white bg-green text-center" id="copyLink" data-url="<%= url %>">
+            Klik Tombol Ini Untuk Menyalin/Mengcopy Link
+        </div>
+    </div>
+    <a href="/back" class="white deco-none">
+        <div class="back text-center">
+            Kembali
+        </div>
+    </a>
+</div>
+
+<script>
+    document.getElementById('copyLink').addEventListener('click', function() {
+        let url = this.dataset.url
+        return navigator.clipboard.writeText(url)
+    })
+</script>
+
+<script src="./../../js/script.js"></script>

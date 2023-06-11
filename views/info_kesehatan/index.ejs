@@ -1,0 +1,105 @@
+    <link rel="stylesheet" href="./css/style-info_kesehatan.css">
+    
+    <% if( pasien.no != '' ) { %>
+            <!-- Navigation Bar -->
+            <div class="navbar white">
+                <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+                <i class="material-icons">view_headline</i>
+                <div class="menu">
+                    <a class="deco-none white" href="/"><span>Beranda</span></a>
+                    <a class="deco-none white" href="/pasien"><span>Tanya Dokter</span></a>
+                    <a class="deco-none white" href="/info_kesehatan"><span class="actived">Info Kesehatan</span></a>
+                    <a class="deco-none white" href="/buat_janji"><span>Buat Janji</span></a>
+                    <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+                </div>
+                <div class="responsive-menu text-center display-none">
+                    <a class="deco-none white" href="/"><div>Beranda</div></a>
+                    <a class="deco-none white" href="/pasien"><div>Tanya Dokter</div></a>
+                    <a class="deco-none white" href="/info_kesehatan"><div class="actived">Info Kesehatan</div></a>
+                    <a class="deco-none white" href="/buat_janji"><div>Buat Janji</div></a>
+                    <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+                </div>
+            </div>
+    <% } else{ %>
+            <!-- Navigation Bar -->
+            <div class="navbar white">
+                <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+                <i class="material-icons">view_headline</i>
+                <div class="menu">
+                    <a class="deco-none white" href="/"><span>Beranda</span></a>
+                    <a class="deco-none white" href="/tanya_dokter"><span>Tanya Dokter</span></a>
+                    <a class="deco-none white" href="/info_kesehatan"><span class="actived">Info Kesehatan</span></a>
+                    <a class="deco-none white" href="/buat_janji"><span>Buat Janji</span></a>
+                </div>
+                <div class="responsive-menu text-center display-none">
+                    <a class="deco-none white" href="/"><div>Beranda</div></a>
+                    <a class="deco-none white" href="/tanya_dokter"><div>Tanya Dokter</div></a>
+                    <a class="deco-none white" href="/info_kesehatan"><div class="actived">Info Kesehatan</div></a>
+                    <a class="deco-none white" href="/buat_janji"><div>Buat Janji</div></a>
+                </div>
+            </div>
+    <% } %>
+
+    <!-- Content -->
+    <style>
+        .container-info {
+            margin: 10vh 5%;
+            border-radius: 5px;
+        }
+        .container-info .box {
+            margin: 5%;
+            padding: 2.5% 1%;
+            display: grid;
+        }
+        .container-info .box .content-box {
+            background-image: linear-gradient(to bottom, rgb(50, 120, 50), rgb(132, 173, 132));
+            padding: 2.5% .5%;
+            margin: 2.5% 0;
+            border-radius: 5px;
+        }
+        .container-info .box .content-box:hover {
+            box-shadow: 2px 1px 2px 3px gray;
+            transition: ease-in-out 200ms;
+        }
+    </style>
+
+<div class="container-info bg-white">
+    <p class="text-center green size-xlarge" style="padding-top: 5%;">Info Kesehatan</p>
+    <div class="box">
+        <% for( const m of info ) { %>
+            <div class="content-box">
+                <a href="<%= m.link %>" class="white deco-none">
+                    <div class="title size-large green bg-white" style="margin-bottom: .5%; padding: 2% 1%; border-radius: 5px 5px 0 0;">
+                        <%= m.judul %>
+                    </div>
+                    <div class="isi size-small green bg-white" style="margin-bottom: 5%; padding: 2% 1%; border-radius: 0 0 5px 5px;">
+                        <%= m.isi %>
+                    </div class="isi">
+                    <div class="from" style="float: left;">
+                        Sumber: <%= m.sumber %>
+                    </div>
+                    <div class="date" style="font-style: italic; text-align: right;">
+                        <%= m.tanggalDibuat %>
+                    </div>
+                </a>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<script>
+
+    for( const m of document.getElementsByClassName('isi') ) {
+        const word = m.innerText.split(' ')
+        word.splice(20, word.length)
+        // console.log(word)
+        word.push('......')
+        m.innerText = ' '
+        word.forEach(x => {
+            m.innerText += ' ' + x
+        })
+    }
+</script>
+    
+
+<script src="./js/script-info_kesehatan.js"></script>

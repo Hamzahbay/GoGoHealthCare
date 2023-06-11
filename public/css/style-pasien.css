@@ -1,0 +1,109 @@
+body {
+    height: 100vh;
+}
+
+.container {
+    margin: 5%;
+}
+.container .logout {
+    float: right;
+    padding: .5% 1%;
+    background-color: rgb(50, 120, 50);
+    border-radius: 5px;
+}
+.container .bg-popup {
+    position: fixed;
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, rgb(50, 120, 50),  rgb(99, 167, 99));
+    top: 0;
+    left: 0;
+    opacity: .5;
+}
+.container .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(to bottom right, rgb(50, 120, 50),  rgb(99, 167, 99));
+    padding: 2.5% 5%;
+    border-radius: 5px;
+    z-index: 4;
+}
+.container .popup p {
+    width: 100%;
+    border-radius: 5px;
+    /* color: whitesmoke;
+    background-color: rgb(50, 120, 50); */
+    color: rgb(50, 120, 50);
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.container .popup form p input {
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: rgb(50, 120, 50);
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.container .popup form textarea {
+    border: solid 2px rgb(132, 173, 132);
+    border-radius: 5px;
+    padding: 1%;
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(50, 120, 50);
+}
+.container .box {
+    border: solid 2px rgb(132, 173, 132);
+    background-image: linear-gradient(to left, rgb(50, 120, 50), rgb(132, 173, 132));
+    border-radius: 5px;
+}
+.container .box .title {
+    border-radius: 5px;
+}
+.container .box .title i {
+    border-radius: 50%;
+    padding: 1%;
+    cursor: pointer;
+}
+.container .box .content-box {
+    margin: 5% 2.5%;
+    padding: .5% 1%;
+    display: grid;
+
+}
+.container .box .content-box .content {
+    margin: 2.5% 0;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border: solid 2px whitesmoke;
+}
+.container .box .content-box .content .main {
+    /* border: solid 1px darkgray; */
+    border-radius: 5px;
+    margin-bottom: 2.5%;
+    padding: .5% 0;
+}
+.container .box .content-box .content .jawaban {
+    background-image: linear-gradient(to left, rgb(50, 120, 50),  rgb(132, 173, 132));
+    color: whitesmoke;
+    border-radius: 0;
+}
+.container .box .content-box .content .main div {
+    margin: 2.5% .5%;
+}
+.container .box .content-box .content .action {
+    text-align: right;
+    margin: 1% .5%;
+}
+.container .box .content-box .content .action span {
+    margin: 0 0;
+    padding: .5% 1%;
+    background-image: linear-gradient(to bottom right, rgb(50, 120, 50),  rgb(99, 167, 99));
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+}

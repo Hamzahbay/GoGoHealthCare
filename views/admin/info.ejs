@@ -1,0 +1,113 @@
+<% if( pasien.role == 'admin' ){ %>
+    <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/style-buat_janji.css">
+    
+        <!-- Navigation Bar -->
+        <div class="navbar white">
+            <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+            <i class="material-icons">view_headline</i>
+            <div class="menu">
+                <a class="deco-none white" href="/admin/jadwal"><span>Jadwal</span></a>
+                <a class="deco-none white" href="/pasien"><span>Jawab</span></a>
+                <a class="deco-none white" href="/admin/data_pasien"><span>Pasien</span></a>
+                <a class="deco-none white" href="/admin/info"><span class="actived">Info Kesehatan</span></a>
+                <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+            </div>
+            <div class="responsive-menu text-center display-none">
+                <a class="deco-none white" href="/admin/jadwal"><div>Jadwal</div></a>
+                <a class="deco-none white" href="/pasien"><div>Jawab</div></a>
+                <a class="deco-none white" href="/admin/data_pasien"><div>Pasien</div></a>
+                <a class="deco-none white" href="/admin/info"><div class="actived">Info Kesehatan</div></a>
+                <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h3 class="green size-xlarge text-center" style="margin: 5% 0;">Info Kesehatan</h3>
+            <div class="alert-msg">
+                <div class="alert-box text-center" style="width: 100%; margin: 0;">
+                    <%- include('./../partials/messages') %>
+                </div>
+            </div>
+            <div class="box" style="margin-top: 0;">
+                <form action="/admin/info" method="POST" class="text-center">
+                    <p class="input"><input type="text" name="sumber" id="name" placeholder="Sumber" required autocomplete="off"><input class="display-none" type="text" name="tanggalDibuat" id="tggl" required autocomplete="off"></p>
+                    <p class="input"><input type="text" name="link" id="name" placeholder="Link" required autocomplete="off"></p>
+                    <p><textarea name="judul" id="message1" placeholder="Judul" rows="2"></textarea></p>
+                    <p><textarea name="isi" id="message1" placeholder="Isi" rows="5"></textarea></p>
+                    <p class="submit"><input type="reset" value="Reset"><input type="submit" value="Unggah"></p>
+                </form>
+            </div>
+        </div>
+
+        <style>
+            .container-info {
+                margin: 10vh 5%;
+                border-radius: 5px;
+            }
+            .container-info .box {
+                margin: 5%;
+                padding: 2.5% 1%;
+                display: grid;
+            }
+            .container-info .box .content-box {
+                background-image: linear-gradient(to bottom, rgb(50, 120, 50), rgb(132, 173, 132));
+                padding: 2.5% 1.5%;
+                margin: 2.5% 0;
+                border-radius: 5px;
+            }
+        </style>
+
+        <div class="container-info bg-white">
+            <p class="text-center green size-xlarge" style="padding-top: 5%;">Info Kesehatan</p>
+            <div class="box">
+                <% for( const m of info ) { %>
+                    <div class="content-box">
+                        <a href="<%= m.link %>" class="white deco-none">
+                            <div class="title size-large green bg-white" style="margin-bottom: .5%; padding: 2% 1%; border-radius: 5px 5px 0 0;">
+                                <%= m.judul %>
+                            </div>
+                            <div class="isi size-small green bg-white" style="margin-bottom: 5%; padding: 2% 1%; border-radius: 0 0 5px 5px;">
+                                <%= m.isi %>
+                            </div class="isi">
+                            <div class="from" style="float: left;">
+                                Sumber: <%= m.sumber %>
+                            </div>
+                            <div class="date" style="font-style: italic; text-align: right;">
+                                <%= m.tanggalDibuat %>
+                            </div>
+                        </a>
+                        <div class="delete bg-white" style="padding: .5% 2.5%; float: right; border-radius: 5px; margin-top: 2.5%;">
+                            <a href="/admin/info/delete/<%= m._id %>" onclick="return confirm('Apakah Anda Yakin?')" class="deco-none green" style="margin: 2.5%;">Hapus</a>
+                        </div>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    
+        
+    
+    <script>
+        tggl.value = `${new Date().getDate()}-${new Date().getMonth() + 1}-${new Date().getFullYear()}`
+
+        // for( const m of document.getElementsByClassName('isi') ) {
+        //     const word = m.innerText.split(' ')
+        //     word.splice(20, word.length)
+        //     // console.log(word)
+        //     word.push('......')
+        //     m.innerText = ' '
+        //     word.forEach(x => {
+        //         m.innerText += ' ' + x
+        //     })
+        // }
+    </script>
+
+    <script src="./../js/script.js"></script>
+<% } else{ %>
+    <center>
+        <h1>FORBIDEN</h1>
+        <h2>~~ GOGO HEALTHcares ~~</h2>
+        <h1>GO BACK</h1>
+        <h3><a href="/">CLICK HERE</a></h3>
+    </center>
+<% } %>

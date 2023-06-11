@@ -1,0 +1,100 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.footer {
+    display: none;
+}
+
+.info h2, .info h3 {
+    position: absolute;
+}
+.info h2 {
+    top: 0;
+    right: 20%;
+}
+.info h3 {
+    top: 0;
+    left: 20%;
+}
+.info button {
+    position: absolute;
+    width: 30%;
+    height: 5%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.arena {
+    position: fixed;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60vw;
+    height: 80vh;
+    border: ridge black;
+    background-color: lightgray;
+    cursor: crosshair;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.area {
+    position: absolute;
+    width: 100%;
+    width: 60vw;
+    height: 80vh;
+}
+
+.dot {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+    z-index: 1;
+}
+
+.end {
+    color: white;
+    background-image: linear-gradient(to right, black, gray, black, gray, black, gray, black, gray, black, gray, black);
+    background-size: 500%;
+    text-align: center;
+    font-size: 500%;
+    font: bolder;
+    margin-top: 30%;
+    padding: 5% 0;
+    animation: bgAnm 8s linear infinite;
+}
+.word {
+    animation: opac ease 500ms;
+}
+
+@keyframes opac {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes bgAnm {
+    0% {
+        background-size: 500%;
+        background-position: left;
+    }
+    50% {
+        background-size: 500%;
+        background-position: center;
+    }
+    100% {
+        background-size: 500%;
+        background-position: right;
+    }
+}

@@ -1,0 +1,87 @@
+
+    <link rel="stylesheet" href="./css/style-beranda.css">
+    
+    
+    <% if( pasien.no != '' ) { %>
+            <!-- Navigation Bar -->
+            <div class="navbar white">
+                <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+                <i class="material-icons">view_headline</i>
+                <div class="menu">
+                    <a class="deco-none white" href="/"><span class="actived">Beranda</span></a>
+                    <a class="deco-none white" href="/pasien"><span>Tanya Dokter</span></a>
+                    <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+                    <a class="deco-none white" href="/buat_janji"><span>Buat Janji</span></a>
+                    <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+                </div>
+                <div class="responsive-menu text-center display-none">
+                    <a class="deco-none white" href="/"><div class="actived">Beranda</div></a>
+                    <a class="deco-none white" href="/pasien"><div>Tanya Dokter</div></a>
+                    <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+                    <a class="deco-none white" href="/buat_janji"><div>Buat Janji</div></a>
+                    <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+                </div>
+            </div>
+    <% } else{ %>
+            <!-- Navigation Bar -->
+            <div class="navbar white">
+                <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+                <i class="material-icons">view_headline</i>
+                <div class="menu">
+                    <a class="deco-none white" href="/"><span class="actived">Beranda</span></a>
+                    <a class="deco-none white" href="/tanya_dokter"><span>Tanya Dokter</span></a>
+                    <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+                    <a class="deco-none white" href="/buat_janji"><span>Buat Janji</span></a>
+                </div>
+                <div class="responsive-menu text-center display-none">
+                    <a class="deco-none white" href="/"><div class="actived">Beranda</div></a>
+                    <a class="deco-none white" href="/tanya_dokter"><div>Tanya Dokter</div></a>
+                    <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+                    <a class="deco-none white" href="/buat_janji"><div>Buat Janji</div></a>
+                </div>
+            </div>
+    <% } %>
+
+    <!-- Background -->
+    <div class="bg-home"><img src="./img/cactus.jpg" alt=""></div>
+
+    <!-- Content -->
+    <div class="container white">
+        <div class="title text-center"><div>GoGo Healthcare</div><p class="size-xlarge">Tempat terbaik untuk konsultasi dan buat janji</p></div>
+        <div class="content bg-white green">
+            <p class="size-xxlarge text-center">Kini kami bisa diakses melalui genggaman anda Ayo Konsultasi Sekarang!</p>
+            <div class="size-large address text-center">Alamat Klinik : Jl.Haji Juanda Utara , Malang , Jawa Timur</div>
+            <div class="box text-center">
+                <!-- <p class="text-center white bg-green size-xlarge parap">Mulai Sekarang Juga</p> -->
+                <img src="./img/clinic.jpg">
+                <div class="row white">
+                    <!-- <div class="text-center">
+                        <p class="size-xlarge">Memudahkan Semua Orang</p>
+                        <p class="size-small">Memudahkan Orang untuk Mengetahui Info Kesehatan.</p>
+                        <br>
+                        <a href="/info_kesehatan" class="deco-none bg-white">Lanjut...</a>
+                    </div> -->
+                    <div class="text-center">
+                        <p class="size-xlarge">Konsultasikan masalah anda</p>
+                        <p class="size-small">Memudahkan anda untuk mengetahui info seputar kesehatan melalui perangkat digital anda.</p>
+                        <br>
+                        <a href="/tanya_dokter" class="deco-none bg-white">Lanjut...</a>
+                    </div>
+                    <div class="text-center">
+                        <p class="size-xlarge">Buat janji dari rumah</p>
+                        <p class="size-small">Memudahkan anda untuk membuat janji dengan dokter di klinik Gogo Healthcare.</p>
+                        <br>
+                        <a href="/buat_janji/form_janji" class="deco-none bg-white">Lanjut...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="last text-center">
+            <div>
+                <p class="size-xxlarge">Kunjungi Klinik kami dan Coba Sekarang Juga</p>
+            </div>
+        </div>
+    </div>
+
+
+<script src="./js/script-beranda.js"></script>

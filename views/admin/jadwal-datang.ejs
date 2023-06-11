@@ -1,0 +1,188 @@
+<% if( pasien.role == 'admin' ){ %>
+    <link rel="stylesheet" href="./../../css/style.css">
+
+    <style>
+        body {
+            height: 100vh;
+        }
+        .container {
+            margin: 10vh 2.5%;
+        }
+        .container .menu a {
+            margin: 0 2.5%;
+            padding: .5% 1%;
+            background-color: lightgray;
+            color: green;
+            border-radius: 5px;
+        }
+        .container .box h4 {
+            border-radius: 5px;
+            margin: 0;
+        }
+        .container .box{
+            background-color: rgb(152, 198, 152);
+            padding: 1% .5%;
+            margin: 2.5% 0;
+            border-radius: 5px;
+        }
+        .container .box .content {
+            display: inline-block;
+            background-color: rgb(240, 240, 240);
+            background-image: linear-gradient(to bottom right, rgb(50, 120, 50), rgb(132, 173, 132));
+            padding: .5% 1%;
+            margin: 1% 0;
+            border-radius: 5px;
+        }
+        .container .box .content:hover {
+            box-shadow: 1px 2px 1px 2px gray;
+            transition: ease-in-out 200ms;
+        }
+        .container .box .content .item p {
+            display: inline-block;
+        }
+        .container .box .content .click .popup {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            padding: 2.5%;
+            border-radius: 5px;
+            z-index: 5;
+            background-image: linear-gradient(to bottom left, rgb(50, 120, 50), rgb(132, 173, 132));
+        }
+        .container .box .content .click {
+            transition: ease-in-out 500ms;
+        }
+        .container .box .content .click .popup div {
+            /* display: grid; */
+            margin: 5vh 0;
+        }
+        .container .box .content .click .popup .delete:hover {
+            border: solid 1px orangered;
+        }
+        .container .box .content .click .popup .back:hover {
+            border: solid 1px gray;
+        }
+        .container .bg-clicked {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(to bottom right, rgb(50, 120, 50),  rgb(99, 167, 99));
+            z-index: 4;
+            opacity: .4;
+            transition: ease-in-out 250ms;
+        }
+        .labelCheck input:hover, .delete:hover {
+            color: whitesmoke;
+            background-color: green;
+        }
+        .container .box .nothing {
+            text-align: center;
+            color: whitesmoke;
+            background-image: linear-gradient(to bottom, rgb(50, 120, 50),  rgb(99, 167, 99));
+            padding: 2.5vh 0;
+            border-radius: 5px;
+        }
+
+        @media(max-width: 600px) {
+            .container {
+                margin: 10vh 0vh;
+            }
+            .container .box .content .click  .popup {
+                width: 80%;
+            }
+        }
+    </style>
+    
+        <!-- Navigation Bar -->
+        <div class="navbar white">
+            <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+            <i class="material-icons">view_headline</i>
+            <div class="menu">
+                <a class="deco-none white" href="/admin/jadwal"><span class="actived">Jadwal</span></a>
+                <a class="deco-none white" href="/pasien"><span>Jawab</span></a>
+                <a class="deco-none white" href="/admin/data_pasien"><span>Pasien</span></a>
+                <a class="deco-none white" href="/admin/info"><span>Info Kesehatan</span></a>
+                <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+            </div>
+            <div class="responsive-menu text-center display-none">
+                <a class="deco-none white" href="/admin/jadwal"><div class="actived">Jadwal</div></a>
+                <a class="deco-none white" href="/pasien"><div>Jawab</div></a>
+                <a class="deco-none white" href="/admin/data_pasien"><div>Pasien</div></a>
+                <a class="deco-none white" href="/admin/info"><div>Info Kesehatan</div></a>
+                <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+            </div>
+        </div>
+    
+        <div class="container">
+            <p class="title green text-center size-xlarge">Pasien Yang Telah datang</p>
+            <p class="size-medium text-center">
+                <a href="/admin/jadwal" class="deco-none white bg-green" style="padding: 1% .5%; border-radius: 5px;">
+                    <i class='fas fa-arrow-circle-left'></i> Jadwal
+                </a>
+            </p>
+            <div class="bg-clicked display-none"></div>
+            <div class="alert-msg">
+                <div class="alert-box text-center" style="width: 100%; margin: 0;">
+                    <%- include('./../partials/messages') %>
+                </div>
+            </div>
+            <div class="box box4">
+                <h4 class="green text-center bg-white">Telah Datang</h4>
+                <% for( const x of janji ) { %>
+                    <% if( x.kedatangan == 'on' ) { %>
+                        <div class="content">
+                            <div class="item">
+                                <p class="white size-larger">Nama: </p>
+                                <p class="white size-small"><%= x.nama %></p>
+                            </div>
+                            <div class="item">
+                                <p class="white size-larger">No Telfon: </p>
+                                <p class="white size-small"><%= x.telfon %></p>
+                            </div>
+                            <div class="item">
+                                <p class="white size-larger">Alamat: </p>
+                                <p class="white size-small"><%= x.alamat %></p>
+                            </div>
+                            <div class="item">
+                                <p class="white size-larger">Tanggal Janji: </p>
+                                <p class="tggl white size-small"><%= x.tanggal %></p>
+                            </div>
+                            <div id="delete">
+                                <a href="/admin/jadwal/<%= x._id %>" onclick="return confirm('Apakah Anda Yakin?')" class="deco-none green text-center">
+                                    <div class="bg-white delete" style="width: 100%; border-radius: 5px; cursor: pointer; margin: 5% 0;">
+                                        Hapus
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="click display-none">
+                                <div class="popup white">
+                                    <div>
+                                        <p class="size-large green bg-white text-center" style="border-radius: 5px;">Riwayat Penyakit</p>
+                                        <p><strong class="size-larger" style="float: left; margin-right: 2.5%; margin-bottom: 10%;">></strong><%= x.riwayat %></p>
+                                    </div>
+                                    <div>
+                                        <p class="size-large green bg-white text-center" style="border-radius: 5px;">Keluhan</p>
+                                        <p><strong class="size-larger" style="float: left; margin-right: 2.5%; margin-bottom: 10%;">></strong><%= x.keluhan %></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% } %>
+                <% } %>
+            </div>
+        </div>
+    
+    <script src="./../../js/script.js"></script>
+    <script src="./../../js/script-jadwal.js"></script>
+<% } else{ %>
+    <center>
+        <h1>FORBIDEN</h1>
+        <h2>~~ GOGO HEALTHcares ~~</h2>
+        <h1>GO BACK</h1>
+        <h3><a href="/">CLICK HERE</a></h3>
+    </center>
+<% } %>

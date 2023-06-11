@@ -1,0 +1,78 @@
+
+
+<% if( pasien.role == 'admin' ){ %>
+    <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/style-tanya_dokter.css">
+    
+    <style>
+        .container .title-box {
+            text-align: center;
+            font-size: 5vh;
+            color: rgb(50, 120, 50);
+        }
+    </style>
+    
+        <!-- Navigation Bar -->
+        <div class="navbar white">
+            <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+            <i class="material-icons">view_headline</i>
+            <div class="menu">
+                <a class="deco-none white" href="/admin/jadwal"><span>Jadwal</span></a>
+                <a class="deco-none white" href="/pasien"><span>Jawab</span></a>
+                <a class="deco-none white" href="/admin/data_pasien"><span class="actived">Pasien</span></a>
+                <a class="deco-none white" href="/admin/info"><span>Info Kesehatan</span></a>
+                <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+            </div>
+            <div class="responsive-menu text-center display-none">
+                <a class="deco-none white" href="/admin/jadwal"><div>Jadwal</div></a>
+                <a class="deco-none white" href="/pasien"><div>Jawab</div></a>
+                <a class="deco-none white" href="/admin/data_pasien"><div class="actived">Pasien</div></a>
+                <a class="deco-none white" href="/admin/info"><div>Info Kesehatan</div></a>
+                <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+            </div>
+        </div>
+    
+    <div class="container">
+        <div class="box text-center size-large">
+            <div class="title-box">
+                <p>
+                    Daftar Pasien
+                </p>
+            </div>
+            <div class="alert-box">
+                <%- include('./../partials/messages') %>
+            </div>
+            <form action="/admin/pasien" method="POST">
+                <p class="input">
+                    <input type="text" name="nama" autocomplete="off" id="inputName" placeholder="Nama" required>
+                    <input type="text" name="alamat" autocomplete="off" id="alamat" placeholder="Alamat Pasien" required>
+                </p>
+                <p class="input">
+                    <input type="text" name="telfon" autocomplete="off" id="telfon" placeholder="Nomor Telfon" required>
+                    <input type="text" name="no" autocomplete="off" id="no" placeholder="Nomor Pasien" value="<%= noPasien - 1 %>" required style="cursor: not-allowed;">
+                </p>
+                <p class="submit"><input type="reset" value="Reset"><input type="submit" value="Daftar"></p>
+            </form>
+            <p class="size-xlarge text-center">
+                <a href="/admin/data_pasien" class="deco-none white bg-green" style="padding: 1% .5%; border-radius: 5px;">
+                    Pasien Terdaftar <i class='fas fa-arrow-circle-right'></i>
+                </a>
+            </p>
+        </div>
+        <div class="alert text-center green">
+            <p class="size-xxlarge">Perhatian !</p>
+            <div class="size-large">
+                Isi nama pasien dengan nama asli mereka, Isi form dengan Sebenar beanrnya
+            </div>
+        </div>
+    </div>
+    
+    <script src="./../js/script.js"></script>
+<% } else{ %>
+    <center>
+        <h1>FORBIDEN</h1>
+        <h2>~~ GOGO HEALTHcares ~~</h2>
+        <h1>GO BACK</h1>
+        <h3><a href="/">CLICK HERE</a></h3>
+    </center>
+<% } %>

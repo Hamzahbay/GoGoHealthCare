@@ -1,0 +1,109 @@
+body {
+    background: rgb(240, 240, 240);
+    height: 100vh;
+}
+.container {
+    margin: 5% 10%;
+    border-radius: 10px;
+}
+.container .box {
+    margin: 5% 0;
+    padding: 5% 0;
+    background: white;
+    border-radius: 10px;
+    color: green;
+}
+.container .box .input input {
+    border-radius: 5px;
+    margin: 0 .5%;
+    padding: 1%;
+    width: 30%;
+    color: rgb(50, 120, 50);
+    border: none;
+    border: solid 2px rgb(132, 173, 132);
+    background: rgb(250, 250, 250);
+}
+.container .box .input input:focus {
+    border: solid 3px rgb(132, 173, 132);
+    transform: scale(1.2);
+    background: white;
+    margin: 0 4%;
+    transition: ease 500ms;
+}
+.container .box .submit input {
+    margin: 0 .5%;
+    width: 100px;
+    border: solid 2px rgb(132, 173, 132);
+    color: rgb(50, 120, 50);
+    border-radius: 5px;
+    background: white;
+    cursor: pointer;
+}
+.container .box .submit input:hover {
+    background-image: linear-gradient(to bottom right, rgb(50, 120, 50), rgb(132, 173, 132));
+    color: white;
+    transform: scale(1.2);
+    border: solid 2px rgb(250, 250, 250);
+    transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 200ms;
+    /* margin: 0 0%; */
+}
+
+.container .alert {
+    margin: 5% 0;
+}
+.container .alert div {
+    border-top: double;
+    padding: 5% 10%;
+    filter: opacity(.7);
+}
+
+
+
+@media ( max-width: 800px ) {
+    .container {
+        margin: 10% 5%;
+        padding: 0 5%;
+    }
+}
+@media ( max-width: 600px ) {
+    .container {
+        margin: 15% 2.5%;
+        padding: 5% 2.5%;
+    }
+    .container .box {
+        padding: 10% 5%;
+    }
+    .container .box .input input {
+        display: grid;
+        margin: 5% 10%;
+        width: 75%;
+    }
+    .container .box .submit input {
+        width: 80px;
+        margin: 0 5%;
+    }
+    .container .box .input input:focus {
+        border: solid 3px rgb(132, 173, 132);
+        transform: scale(1.2);
+        background: white;
+        margin: 5% 10%;
+        transition: cubic-bezier(0.6, -0.28, 0.0009, -1) 500ms;
+    }
+    .container .box .submit input:hover {
+        background-image: linear-gradient(to bottom right, rgb(50, 120, 50), rgb(132, 173, 132));
+        color: white;
+        transform: scale(1.2);
+        border: solid 2px rgb(250, 250, 250);
+        transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 200ms;
+        margin: 0 5%;
+    }
+    .container .alert {
+        margin-top: 15%;
+    }
+    .container .alert p {
+        font-size: x-large;
+    }
+    .container .alert div {
+        font-size: small;
+    }
+}

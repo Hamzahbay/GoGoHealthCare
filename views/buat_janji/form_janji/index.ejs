@@ -1,0 +1,121 @@
+    <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/style-buat_janji.css">
+    
+    <% if( pasien.no != '' ) { %>
+            <!-- Navigation Bar -->
+            <div class="navbar white">
+                <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+                <i class="material-icons">view_headline</i>
+                <div class="menu">
+                    <a class="deco-none white" href="/"><span>Beranda</span></a>
+                    <a class="deco-none white" href="/pasien"><span>Tanya Dokter</span></a>
+                    <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+                    <a class="deco-none white" href="/buat_janji"><span class="actived">Buat Janji</span></a>
+                    <a class="deco-none white" href="/logout"><span>Keluar</span></a>
+                </div>
+                <div class="responsive-menu text-center display-none">
+                    <a class="deco-none white" href="/"><div>Beranda</div></a>
+                    <a class="deco-none white" href="/pasien"><div>Tanya Dokter</div></a>
+                    <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+                    <a class="deco-none white" href="/buat_janji"><div class="actived">Buat Janji</div></a>
+                    <a class="deco-none white" href="/logout"><div>Keluar</div></a>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <div class="title text-center green size-xxlarge"><p>Buat Janji di Bulan <span></span></p></div>
+                <div class="box text-center">
+                    <div class="alert-box text-center">
+                        <%- include('./../../partials/messages') %>
+                    </div>
+                    <form action="/buat_janji/form_janji" method="POST">
+                        <p class="input">
+                            Nama:
+                            <input type="text" name="nama" id="name" placeholder="Nama" value="<%= pasien.nama %>" required autocomplete="off">
+                            No Telfon:
+                            <input type="text" name="telfon" id="" placeholder="No Telfon/Hp/WA" value="<%= pasien.telfon %>" required autocomplete="off">
+                        </p>
+                        <p class="input">
+                            Alamat:
+                            <input type="text" name="alamat" id="address" placeholder="Alamat" value="<%= pasien.alamat %>" required autocomplete="off">
+                            Tanggal Janji:
+                            <input type="date" name="tanggal" id="dateInput" required autocomplete="off" placeholder="Pilih Tanggal">
+                        </p>
+                        <p>
+                            <p>Riwayat Penyakit:</p>
+                            <textarea name="riwayat" id="message1" placeholder=" Ceritakan Riwayat Penyakit Anda..." rows="5"></textarea>
+                            <p>Keluhan:</p>
+                            <textarea name="keluhan" id="message2" placeholder=" Ceritakan Keluhan Anda..." rows="5"></textarea>
+                        </p>
+                        <p class="submit"><input type="reset" value="Reset"><input type="submit" value="Cetak"></p>
+                    </form>
+                </div>
+                <div class="alert text-center green">
+                    <p class="size-xxlarge">Perhatian !</p>
+                    <div class="size-large">
+                        Mohon isi Form Janji dengan Sebenar-benarnya.
+                    </div>
+                </div>
+            </div>
+    <% } else{ %>
+            <!-- Navigation Bar -->
+            <div class="navbar white">
+                <span class="nav-title"><strong>GoGo Health<em>care</em></strong></span>
+                <i class="material-icons">view_headline</i>
+                <div class="menu">
+                    <a class="deco-none white" href="/"><span>Beranda</span></a>
+                    <a class="deco-none white" href="/tanya_dokter"><span>Tanya Dokter</span></a>
+                    <a class="deco-none white" href="/info_kesehatan"><span>Info Kesehatan</span></a>
+                    <a class="deco-none white" href="/buat_janji"><span class="actived">Buat Janji</span></a>
+                </div>
+                <div class="responsive-menu text-center display-none">
+                    <a class="deco-none white" href="/"><div>Beranda</div></a>
+                    <a class="deco-none white" href="/tanya_dokter"><div>Tanya Dokter</div></a>
+                    <a class="deco-none white" href="/info_kesehatan"><div>Info Kesehatan</div></a>
+                    <a class="deco-none white" href="/buat_janji"><div class="actived">Buat Janji</div></a>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="content">
+                <div class="title text-center green size-xxlarge"><p>Buat Janji di Bulan <span></span></p></div>
+                <div class="box text-center">
+                    <div class="alert-box text-center">
+                        <%- include('./../../partials/messages') %>
+                    </div>
+                    <form action="/buat_janji/form_janji" method="POST">
+                        <p class="input">
+                            Nama:
+                            <input type="text" name="nama" id="name" placeholder="Nama" required autocomplete="off">
+                            No Telfon:
+                            <input type="text" name="telfon" id="" placeholder="No Telfon/Hp/WA" required autocomplete="off">
+                        </p>
+                        <p class="input">
+                            Alamat:
+                            <input type="text" name="alamat" id="address" placeholder="Alamat" required autocomplete="off">
+                            Tanggal Janji:
+                            <input type="date" name="tanggal" id="dateInput" required autocomplete="off" placeholder="Pilih Tanggal">
+                        </p>
+                        <p >
+                            <p>Riwayat Penyakit:</p>
+                            <textarea name="riwayat" id="message1" placeholder=" Ceritakan Riwayat Penyakit Anda..." rows="5"></textarea>
+                            <p>Keluhan:</p>
+                            <textarea name="keluhan" id="message2" placeholder=" Ceritakan Keluhan Anda..." rows="5"></textarea>
+                        </p>
+                        <p class="submit"><input type="reset" value="Reset"><input type="submit" value="Cetak"></p>
+                    </form>
+                </div>
+                <div class="alert text-center green">
+                    <p class="size-xxlarge">Perhatian !</p>
+                    <div class="size-large">
+                        Mohon isi Form Janji dengan Sebenar-benarnya.
+                    </div>
+                </div>
+            </div>
+    <% } %>
+
+
+
+<script src="./../js/script.js"></script>
+<script src="./../js/script-buat_janji.js"></script>
